@@ -1,5 +1,5 @@
 # Stremio 
-A Universial Windows Program (UWP) WebView App for Windows and Xbox
+A Universial Windows Program (UWP) Basic limited browser WebView App for Windows and Xbox
 ![Banner](https://github.com/Misunderstood-Wookiee/Stremio-UWP/assets/22002023/a7291857-0935-4067-a2db-03fb7adaae33)
 # Info
 - Important the Streaming URL must be manually for each Xbox User.
