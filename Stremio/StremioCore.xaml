@@ -14,7 +14,7 @@
         <!-- Main web app -->
         <controls:WebView2 x:Name="WebView2" Source="https://web.stremio.com" />
 
-        <!-- Loading overlay: shown until the first NavigationCompleted fires.
+        <!-- Loading overlay: shown until the first successful NavigationCompleted fires.
              Matches the WebView2 background colour so there is no colour flash. -->
         <Grid x:Name="LoadingOverlay" Background="#FF151330">
             <ProgressRing
@@ -22,6 +22,33 @@
                 Width="60"
                 Height="60"
                 Foreground="White" />
+        </Grid>
+
+        <!-- Error overlay: shown when navigation fails (offline, DNS error, etc.).
+             Provides feedback and a retry button so the user can recover without
+             relaunching the app. -->
+        <Grid x:Name="ErrorOverlay" Background="#FF151330" Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock
+                    Text="Unable to connect"
+                    Foreground="White"
+                    FontSize="24"
+                    FontWeight="SemiBold"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,8" />
+                <TextBlock
+                    Text="Check your internet connection and try again."
+                    Foreground="#99FFFFFF"
+                    FontSize="14"
+                    HorizontalAlignment="Center"
+                    TextAlignment="Center"
+                    Margin="0,0,0,24" />
+                <Button
+                    x:Name="RetryButton"
+                    Content="Retry"
+                    HorizontalAlignment="Center"
+                    Click="RetryButton_Click" />
+            </StackPanel>
         </Grid>
 
     </Grid>
