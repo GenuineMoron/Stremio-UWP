@@ -1,4 +1,4 @@
-﻿<Page
+<Page
     x:Class="Stremio.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,9 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="#FF151330">
 
     <Grid>
+
+        <!-- Main web app -->
         <controls:WebView2 x:Name="WebView2" Source="https://web.stremio.com" />
+
+        <!-- Loading overlay: shown until the first NavigationCompleted fires.
+             Matches the WebView2 background colour so there is no colour flash. -->
+        <Grid x:Name="LoadingOverlay" Background="#FF151330">
+            <ProgressRing
+                IsActive="True"
+                Width="60"
+                Height="60"
+                Foreground="White" />
+        </Grid>
+
     </Grid>
 </Page>

@@ -30,6 +30,14 @@ namespace Stremio
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            // On Xbox, disable the always-on mouse cursor and only activate pointer
+            // mode when a control explicitly requests it. Combined with the scaling
+            // fix in MainPage, this gives the best cursor behaviour on a TV.
+            if (Windows.System.Profile.AnalyticsInfo.VersionInfo.DeviceFamily == "Windows.Xbox")
+            {
+                this.RequiresPointerMode = ApplicationRequiresPointerMode.WhenRequested;
+            }
         }
 
         /// <summary>
